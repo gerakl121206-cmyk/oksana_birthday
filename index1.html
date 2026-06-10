@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>З днем народження, Оксана</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #faf7f2;
+  --warm: #f3ede3;
+  --warm2: #ede4d7;
+  --rose: #c9897a;
+  --rose-light: #e8c4bb;
+  --rose-dark: #a0665a;
+  --muted: #b8a89a;
+  --text: #3a2e28;
+  --text-light: #7a6055;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem 6rem;
+  position: relative;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-orb-1 {
+  width: 400px; height: 400px;
+  top: -100px; left: -100px;
+  background: radial-gradient(circle, #e8d5cc30 0%, transparent 70%);
+}
+.hero-orb-2 {
+  width: 300px; height: 300px;
+  bottom: -60px; right: -60px;
+  background: radial-gradient(circle, #d4c4b025 0%, transparent 70%);
+}
+.hero-label {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  animation: fadeUp 1.2s ease both;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(5.5rem, 20vw, 11rem);
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--text);
+  letter-spacing: -3px;
+  animation: fadeUp 1.2s ease 0.15s both;
+}
+.hero-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--rose), transparent);
+  margin: 2rem auto;
+  animation: fadeUp 1.2s ease 0.3s both;
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-style: italic;
+  color: var(--rose-dark);
+  animation: fadeUp 1.2s ease 0.45s both;
+}
+.hero-bday-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  animation: fadeUp 1.2s ease 0.55s both;
+}
+
+/* Лічильник до 18 у hero */
+.adult-counter-wrap {
+  margin-top: 2.5rem;
+  animation: fadeUp 1.2s ease 0.7s both;
+}
+.adult-counter-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.adult-counter-nums {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.cunit { text-align: center; }
+.cnum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  display: block;
+}
+.clabel {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-top: 3px;
+}
+.csep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--rose);
+  opacity: 0.4;
+  padding-top: 4px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: pulse 2.5s infinite;
+}
+
+/* ── GREETING (між Hero і Блок 1) ── */
+.greeting-section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 4rem;
+  text-align: center;
+}
+.greeting-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  line-height: 1.9;
+  color: var(--text);
+  font-style: italic;
+}
+.greeting-text em {
+  font-style: normal;
+  color: var(--rose-dark);
+}
+
+/* ── SECTION WRAPPER ── */
+.block {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.block + .block {
+  padding-top: 2rem;
+}
+.block-sep {
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose-light), transparent);
+  opacity: 0.6;
+}
+
+/* ── BLOCK LABEL ── */
+.block-label {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+/* ── BLOCK TEXT ── */
+.block-text-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  line-height: 1.9;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.block-text-accent {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 300;
+  color: var(--rose-dark);
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+.block-text-small {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+/* ── SLIDER ── */
+.slider-wrap {
+  position: relative;
+  margin-top: 2rem;
+}
+.slider-overflow { overflow: hidden; border-radius: 18px; }
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.slide { min-width: 100%; }
+.slide-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.slide-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: var(--warm);
+  border: 1px solid #e0d4c8;
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 14px 14px 0 0;
+  display: block;
+  background: var(--warm2);
+}
+.slide-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--warm);
+  border: 1.5px dashed #d0c0b0;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  gap: 0.5rem;
+}
+.slide-placeholder svg { opacity: 0.3; }
+.slide-placeholder span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.snav-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid #d0c0b0;
+  background: var(--warm);
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--rose-dark);
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.snav-btn:hover { background: var(--rose); color: #fff; border-color: var(--rose); }
+.snav-dots { display: flex; gap: 5px; align-items: center; }
+.sdot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #d0c0b0; cursor: pointer;
+  transition: all 0.3s;
+}
+.sdot.active { background: var(--rose); width: 16px; border-radius: 3px; }
+.slide-counter {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  min-width: 32px;
+  text-align: center;
+}
+
+/* ── GRID BLOCK 5 ── */
+.grid-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  line-height: 1.9;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 1rem;
+}
+.grid-item {
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  background: var(--warm2);
+  border: 1.5px dashed #d0c0b0;
+  transition: transform 0.2s;
+}
+.grid-item:hover { transform: scale(1.03); }
+.grid-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.grid-item:hover img { transform: scale(1.06); }
+.grid-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(30,20,16,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.lb-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  background: none;
+  border: none;
+  line-height: 1;
+  padding: 8px;
+}
+.lb-close:hover { opacity: 1; }
+
+/* ── LOVE COUNTER (внизу) ── */
+.love-counter-section {
+  background: var(--warm);
+  border-top: 1px solid #e0d4c8;
+  padding: 4rem 2rem 5rem;
+  text-align: center;
+}
+.love-counter-label {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  display: block;
+}
+.love-counter-nums {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.love-big .cnum { font-size: 3rem; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--warm);
+  border-top: 1px solid #e8ddd0;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .block { padding: 4rem 1.25rem; }
+  .hero-name { letter-spacing: -1px; }
+}
+@media (max-width: 400px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <span class="hero-label">11 червня · особливий день</span>
+  <h1 class="hero-name">Оксана</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">З днем народження!</p>
+  <p class="hero-bday-label">тобі сьогодні 18 ✨</p>
+
+  <!-- Лічильник до 18 (до 11.06.2026) -->
+  <div class="adult-counter-wrap" id="adult-wrap" style="cursor:pointer;" title="Натисни ♥">
+    <p class="adult-counter-label" id="adult-counter-label">До повноліття залишилось</p>
+    <div class="adult-counter-nums" id="adult-nums">
+      <div class="cunit"><span class="cnum" id="a-d">—</span><span class="clabel">днів</span></div>
+      <span class="csep">:</span>
+      <div class="cunit"><span class="cnum" id="a-h">—</span><span class="clabel">годин</span></div>
+      <span class="csep">:</span>
+      <div class="cunit"><span class="cnum" id="a-m">—</span><span class="clabel">хвилин</span></div>
+      <span class="csep">:</span>
+      <div class="cunit"><span class="cnum" id="a-s">—</span><span class="clabel">секунд</span></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══ GREETING ══ -->
+<section class="greeting-section">
+  <p class="greeting-text">
+    ////ТЕКСТ////
+  </p>
+</section>
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 1 ══ -->
+<section class="block">
+
+  <!-- Слайд 1 -->
+  <div class="slider-wrap" id="sl1">
+    <div class="slider-overflow">
+      <div class="slider-track" id="track1">
+
+        <div class="slide">
+          <div class="slide-inner">
+            <p class="block-text-big" style="margin-bottom:1.25rem;">////ТЕКСТ НАД ФОТО 1////</p>
+            <img class="slide-img" src="b1_foto1.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-inner">
+            <p class="block-text-big" style="margin-bottom:1.25rem;">////ТЕКСТ НАД ФОТО 2////</p>
+            <img class="slide-img" src="b1_foto2.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-inner">
+            <p class="block-text-big" style="margin-bottom:1.25rem;">////ТЕКСТ НАД ФОТО 3////</p>
+            <img class="slide-img" src="b1_foto3.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-inner">
+            <p class="block-text-big" style="margin-bottom:1.25rem;">////ТЕКСТ НАД ФОТО 4////</p>
+            <img class="slide-img" src="b1_foto4.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-inner">
+            <p class="block-text-big" style="margin-bottom:1.25rem;">////ТЕКСТ НАД ФОТО 5////</p>
+            <img class="slide-img" src="b1_foto5.jpg" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slider-nav">
+      <button class="snav-btn" onclick="slide('track1','dots1',-1)">&#8592;</button>
+      <div class="snav-dots" id="dots1"></div>
+      <span class="slide-counter" id="cnt1">1 / 5</span>
+      <button class="snav-btn" onclick="slide('track1','dots1',1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 2 ══ -->
+<section class="block">
+
+  <p class="block-text-big">////ВЕЛИКИЙ ТЕКСТ НА ПОЧАТКУ БЛОКУ 2////</p>
+
+  <div class="slider-wrap">
+    <div class="slider-overflow">
+      <div class="slider-track" id="track2">
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto1.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto2.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto3.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto4.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto5.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b2_foto6.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+      </div>
+    </div>
+    <div class="slider-nav">
+      <button class="snav-btn" onclick="slide('track2','dots2',-1)">&#8592;</button>
+      <div class="snav-dots" id="dots2"></div>
+      <span class="slide-counter" id="cnt2">1 / 6</span>
+      <button class="snav-btn" onclick="slide('track2','dots2',1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 3 ══ -->
+<section class="block">
+
+  <p class="block-text-big">////ВЕЛИКИЙ ТЕКСТ НА ПОЧАТКУ БЛОКУ 3////</p>
+
+  <div class="slider-wrap">
+    <div class="slider-overflow">
+      <div class="slider-track" id="track3">
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto1.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto2.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto3.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto4.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto5.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto6.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b3_foto7.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+      </div>
+    </div>
+    <div class="slider-nav">
+      <button class="snav-btn" onclick="slide('track3','dots3',-1)">&#8592;</button>
+      <div class="snav-dots" id="dots3"></div>
+      <span class="slide-counter" id="cnt3">1 / 7</span>
+      <button class="snav-btn" onclick="slide('track3','dots3',1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 4 ══ -->
+<section class="block">
+
+  <p class="block-text-big">////ТЕКСТ НА ПОЧАТКУ БЛОКУ 4////</p>
+
+  <div class="slider-wrap">
+    <div class="slider-overflow">
+      <div class="slider-track" id="track4">
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto1.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto2.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto3.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto4.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto5.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+        <div class="slide"><div class="slide-inner">
+          <img class="slide-img" src="b4_foto6.jpg" alt="">
+          <div class="slide-caption">////підпис////</div>
+        </div></div>
+
+      </div>
+    </div>
+    <div class="slider-nav">
+      <button class="snav-btn" onclick="slide('track4','dots4',-1)">&#8592;</button>
+      <div class="snav-dots" id="dots4"></div>
+      <span class="slide-counter" id="cnt4">1 / 6</span>
+      <button class="snav-btn" onclick="slide('track4','dots4',1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 5 (сітка 4 колонки + лайтбокс) ══ -->
+<section class="block">
+  <p class="grid-text">////ТЕКСТ НА ПОЧАТКУ БЛОКУ 5////</p>
+
+  <div class="photo-grid" id="grid5">
+    <div class="grid-item" onclick="openLb(0)"><img src="b5_foto1.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(1)"><img src="b5_foto2.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(2)"><img src="b5_foto3.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(3)"><img src="b5_foto4.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(4)"><img src="b5_foto5.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(5)"><img src="b5_foto6.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(6)"><img src="b5_foto7.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(7)"><img src="b5_foto8.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(8)"><img src="b5_foto9.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(9)"><img src="b5_foto10.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLb(10)"><img src="b5_foto11.jpg" alt=""></div>
+    <div class="grid-item" onclick="openLbVideo()" style="background:#1a1a1a; border:none; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; cursor:pointer;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="white" opacity="0.8"><path d="M8 5v14l11-7z"/></svg>
+      <span style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.6);">відео</span>
+    </div>
+  </div>
+
+
+<div class="block-sep"></div>
+
+
+<!-- ══ БЛОК 6 (фінальний) ══ -->
+<section class="block">
+
+  <p class="block-text-big">////ТЕКСТ ПРО ТЕ ЯК ТИ ЇЇ ЛЮБИШ////</p>
+
+  <div style="margin-top:1.5rem; border-radius:18px; overflow:hidden; border:1px solid #e0d4c8;">
+    <img class="slide-img" src="b6_foto1.jpg" alt="" style="border-radius:0;">
+  </div>
+</section>
+
+
+<!-- ══ ЛІЧИЛЬНИК ВІДНОСИН (внизу) ══ -->
+<div class="love-counter-section">
+  <span class="love-counter-label">ми разом вже</span>
+  <div class="love-counter-nums love-big">
+    <div class="cunit"><span class="cnum" id="l-d">—</span><span class="clabel">днів</span></div>
+    <span class="csep">:</span>
+    <div class="cunit"><span class="cnum" id="l-h">—</span><span class="clabel">годин</span></div>
+    <span class="csep">:</span>
+    <div class="cunit"><span class="cnum" id="l-m">—</span><span class="clabel">хвилин</span></div>
+    <span class="csep">:</span>
+    <div class="cunit"><span class="cnum" id="l-s">—</span><span class="clabel">секунд</span></div>
+  </div>
+  <p style="margin-top:1.5rem; font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; color:var(--muted);">з 27 грудня 2025 ♥</p>
+</div>
+
+<footer>Оксана &nbsp;·&nbsp; ♥ &nbsp;·&nbsp; 2026</footer>
+
+
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLbAll()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <video id="lb-video" controls playsinline style="display:none; max-width:90vw; max-height:88vh; border-radius:12px;">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<script>
+/* ── СЛАЙДЕРИ ── */
+const sliderState = {};
+const configs = [
+  { track:'track1', dots:'dots1', cnt:'cnt1', total:5 },
+  { track:'track2', dots:'dots2', cnt:'cnt2', total:6 },
+  { track:'track3', dots:'dots3', cnt:'cnt3', total:7 },
+  { track:'track4', dots:'dots4', cnt:'cnt4', total:6 },
+];
+
+configs.forEach(c => {
+  sliderState[c.track] = 0;
+  const dotsEl = document.getElementById(c.dots);
+  for (let i = 0; i < c.total; i++) {
+    const d = document.createElement('div');
+    d.className = 'sdot' + (i===0?' active':'');
+    d.onclick = () => goToSlide(c.track, c.dots, c.cnt, c.total, i);
+    dotsEl.appendChild(d);
+  }
+});
+
+function slide(trackId, dotsId, dir) {
+  const cfg = configs.find(c => c.track === trackId);
+  const cur = sliderState[trackId];
+  const next = (cur + dir + cfg.total) % cfg.total;
+  goToSlide(trackId, dotsId, cfg.cnt, cfg.total, next);
+}
+
+function goToSlide(trackId, dotsId, cntId, total, idx) {
+  sliderState[trackId] = idx;
+  document.getElementById(trackId).style.transform = `translateX(-${idx * 100}%)`;
+  document.querySelectorAll(`#${dotsId} .sdot`).forEach((d,i) => d.classList.toggle('active', i===idx));
+  document.getElementById(cntId).textContent = `${idx+1} / ${total}`;
+}
+
+/* Свайп */
+document.querySelectorAll('.slider-overflow').forEach((el, i) => {
+  const cfg = configs[i];
+  let startX = 0;
+  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  el.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) slide(cfg.track, cfg.dots, dx < 0 ? 1 : -1);
+  });
+});
+
+/* ── ЛАЙТБОКС (блок 5) ── */
+const grid5imgs = ['b5_foto1.jpg','b5_foto2.jpg','b5_foto3.jpg','b5_foto4.jpg','b5_foto5.jpg','b5_foto6.jpg','b5_foto7.jpg','b5_foto8.jpg','b5_foto9.jpg','b5_foto10.jpg','b5_foto11.jpg'];
+
+function openLb(idx) {
+  const src = grid5imgs[idx];
+  if (!src) return;
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-img').style.display = '';
+  document.getElementById('lb-video').style.display = 'none';
+  document.getElementById('lb-video').pause();
+  document.getElementById('lightbox').classList.add('open');
+}
+function openLbVideo() {
+  document.getElementById('lb-img').style.display = 'none';
+  document.getElementById('lb-video').style.display = '';
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLbAll() {
+  document.getElementById('lb-video').pause();
+  document.getElementById('lightbox').classList.remove('open');
+}
+function closeLb(e) {
+  if (e.target === document.getElementById('lightbox')) {
+    document.getElementById('lb-video').pause();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('lb-video').pause();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+});
+
+/* ── ЛІЧИЛЬНИКИ ── */
+const ADULT = new Date('2026-06-11T00:00:00');
+const LOVE  = new Date('2025-12-27T00:00:00');
+function pad(n) { return String(n).padStart(2,'0'); }
+
+function tick() {
+  const now = new Date();
+  const TRIGGER = new Date('2026-06-11T00:00:00'); // тест: змін на '2026-06-11T00:00:00' для продакшну
+
+  if (now >= TRIGGER) {
+    document.getElementById('adult-counter-label').textContent = 'Вже повнолітня';
+    const since = now - ADULT;
+    const absSince = Math.abs(since);
+    const sign = since < 0 ? '-' : '';
+    document.getElementById('a-d').textContent = sign + Math.floor(absSince/86400000);
+    document.getElementById('a-h').textContent = pad(Math.floor((absSince%86400000)/3600000));
+    document.getElementById('a-m').textContent = pad(Math.floor((absSince%3600000)/60000));
+    document.getElementById('a-s').textContent = pad(Math.floor((absSince%60000)/1000));
+  } else {
+    document.getElementById('adult-counter-label').textContent = 'До повноліття залишилось';
+    const d1 = ADULT - now;
+    document.getElementById('a-d').textContent = Math.floor(d1/86400000);
+    document.getElementById('a-h').textContent = pad(Math.floor((d1%86400000)/3600000));
+    document.getElementById('a-m').textContent = pad(Math.floor((d1%3600000)/60000));
+    document.getElementById('a-s').textContent = pad(Math.floor((d1%60000)/1000));
+  }
+
+  /* Відносини */
+  const d2 = now - LOVE;
+  document.getElementById('l-d').textContent = Math.floor(d2/86400000);
+  document.getElementById('l-h').textContent = pad(Math.floor((d2%86400000)/3600000));
+  document.getElementById('l-m').textContent = pad(Math.floor((d2%3600000)/60000));
+  document.getElementById('l-s').textContent = pad(Math.floor((d2%60000)/1000));
+}
+
+/* Клік на лічильник 18 */
+let adultMsgShown = false;
+document.getElementById('adult-wrap').addEventListener('click', function() {
+  adultMsgShown = !adultMsgShown;
+  document.getElementById('adult-nums').style.display = adultMsgShown ? 'none' : 'flex';
+  document.getElementById('adult-counter-label').style.display = adultMsgShown ? 'none' : 'block';
+  let msg = document.getElementById('adult-toast');
+  if (adultMsgShown) {
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.id = 'adult-toast';
+      msg.style.cssText = 'font-family:Cormorant Garamond,serif;font-size:1.2rem;font-style:italic;color:var(--rose-dark);animation:fadeUp 0.5s ease both;';
+      msg.textContent = 'Ласкаво просимо у доросле життя ♥';
+      this.appendChild(msg);
+    }
+    msg.style.display = '';
+  } else {
+    if (msg) msg.style.display = 'none';
+  }
+});
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
